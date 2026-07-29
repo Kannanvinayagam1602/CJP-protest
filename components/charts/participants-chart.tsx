@@ -19,7 +19,7 @@ export function ParticipantsChart({ data }: { data: { city: string; participants
         <XAxis dataKey="city" tick={{ fontSize: 11 }} interval={0} angle={-20} textAnchor="end" height={50} />
         <YAxis tickFormatter={(v) => formatCompactNumber(v)} tick={{ fontSize: 11 }} width={48} />
         <Tooltip
-          formatter={(value: number) => [formatNumber(value), "Participants"]}
+          formatter={(value: any) => [formatNumber(value ?? 0), "Participants"]}
           contentStyle={{ borderRadius: 8, fontSize: 12 }}
         />
         <Bar dataKey="participants" radius={[6, 6, 0, 0]}>

@@ -25,7 +25,7 @@ export function TimelineChart({ data }: { data: { date: string; participants: nu
         <YAxis tickFormatter={(v) => formatCompactNumber(v)} tick={{ fontSize: 11 }} width={48} />
         <Tooltip
           labelFormatter={(d) => formatDate(String(d))}
-          formatter={(value: number) => [formatCompactNumber(value), "Participants"]}
+          formatter={(value: any) => [formatCompactNumber(value ?? 0), "Participants"]}
           contentStyle={{ borderRadius: 8, fontSize: 12 }}
         />
         <Line

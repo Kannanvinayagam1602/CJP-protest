@@ -29,8 +29,8 @@ export function DemandPieChart({ data }: { data: { name: string; value: number; 
           ))}
         </Pie>
         <Tooltip
-          formatter={(value: number, name: string, props) => [
-            `${value} events (${props.payload.pct}%)`,
+          formatter={(value: any, name: any, props: any) => [
+            `${value ?? 0} events (${props?.payload?.pct ?? 0}%)`,
             name,
           ]}
           contentStyle={{ borderRadius: 8, fontSize: 12 }}
