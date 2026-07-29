@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Government-blue / signal-orange / neutral slate palette (light) */
+    --background: 210 40% 98%;
+    --foreground: 215 35% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 12%;
+
+    --primary: 213 74% 28%;        /* deep government blue */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 213 30% 94%;
+    --secondary-foreground: 213 74% 22%;
+
+    --accent: 24 92% 53%;          /* signal orange */
+    --accent-foreground: 24 40% 12%;
+
+    --muted: 213 25% 93%;
+    --muted-foreground: 215 16% 42%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 213 25% 88%;
+    --input: 213 25% 88%;
+    --ring: 213 74% 28%;
+    --radius: 0.85rem;
+
+    --chart-1: 213 74% 40%;
+    --chart-2: 24 92% 53%;
+    --chart-3: 199 60% 55%;
+    --chart-4: 42 88% 55%;
+    --chart-5: 215 16% 55%;
+  }
+
+  .dark {
+    --background: 218 42% 8%;
+    --foreground: 210 30% 94%;
+
+    --card: 218 36% 11%;
+    --card-foreground: 210 30% 94%;
+
+    --primary: 210 80% 62%;
+    --primary-foreground: 218 42% 8%;
+
+    --secondary: 218 26% 16%;
+    --secondary-foreground: 210 30% 90%;
+
+    --accent: 24 92% 58%;
+    --accent-foreground: 24 40% 10%;
+
+    --muted: 218 22% 16%;
+    --muted-foreground: 213 15% 65%;
+
+    --destructive: 0 63% 48%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 218 22% 20%;
+    --input: 218 22% 20%;
+    --ring: 210 80% 62%;
+
+    --chart-1: 210 80% 62%;
+    --chart-2: 24 92% 58%;
+    --chart-3: 199 70% 60%;
+    --chart-4: 42 88% 60%;
+    --chart-5: 213 15% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, hsl(var(--primary) / 0.08), transparent 40%),
+      radial-gradient(circle at 85% 15%, hsl(var(--accent) / 0.06), transparent 35%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-border/60 bg-card/70 backdrop-blur-md shadow-sm shadow-black/[0.03];
+  }
+
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/[0.06] hover:-translate-y-0.5;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
